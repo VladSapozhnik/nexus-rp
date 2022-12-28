@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Танцы",
+    "category": "dance",
+    "src": "/images/dance.svg"
+  },
+  {
+    "id": 2,
+    "title": "Стиль походки",
+    "category": "gait",
+    "src": "/images/gait.svg"
+  },
+  {
+    "id": 3,
+    "title": "Физ.упражнения",
+    "category": "physicalExercises",
+    "src": "/images/physicalExercises.svg"
+  },
+  {
+    "id": 4,
+    "title": "Социальные",
+    "category": "social",
+    "src": "/images/social.svg"
+  },
+  {
+    "id": 5,
+    "title": "Эмоции",
+    "category": "emotions",
+    "src": "/images/emotions.svg"
+  },
+  {
+    "id": 6,
+    "title": "Действия",
+    "category": "actions",
+    "src": "/images/actions.svg"
+  },
+  {
+    "id": 7,
+    "title": "Стойки",
+    "category": "position",
+    "src": "/images/position.svg"
+  },
+  {
+    "id": 8,
+    "title": "Неприличные",
+    "category": "indecent",
+    "src": "/images/indecent.svg"
+  }
+]
