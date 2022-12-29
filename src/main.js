@@ -1,27 +1,11 @@
-import * as Vue from 'vue'
-import App from './App.vue'
-// import {createStore} from "vuex";
-import axios from 'axios'
-import VueAxios from 'vue-axios'
+import * as Vue from 'vue';
+import App from './App.vue';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 import PerfectScrollbar from 'vue3-perfect-scrollbar';
-import 'vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css'
+import 'vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css';
 import './app.scss';
-import store from './store/index'
-// import animations from "./animations.json";
-
-// const store = createStore({
-//     state () {
-//         return {
-//             count: 0,
-//             animations: animations
-//         }
-//     },
-//     mutations: {
-//         increment (state) {
-//             state.count++;
-//         }
-//     }
-// })
+import store from './store/index';
 
 const app = Vue.createApp(App);
 

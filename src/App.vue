@@ -42,23 +42,6 @@ export default {
   color: rgba(229, 255, 255, 0.4);
   overflow-y: hidden;
 
-  .animated-wrap {
-    max-height: 810px;
-    position: relative;
-    &::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 0;
-      height: 100vh;
-      width: 2px;
-      display: block;
-      background: linear-gradient(180deg, rgba(229, 255, 255, 0) 0%, #E5FFFF 50%, rgba(229, 255, 255, 0) 100%);
-      opacity: 0.1;
-      z-index: 2;
-    }
-  }
-
   .menu {
     display: flex;
     position: relative;
@@ -76,57 +59,6 @@ export default {
       background: linear-gradient(270deg, #131A1B 0%, #131A1B 50%, rgba(19, 26, 27, 0) 100%);
       opacity: 0.95;
       z-index: -1;
-    }
-  }
-
-  .select-animate {
-    width: 150px;
-    height: 75px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 0;
-    box-sizing: border-box;
-    cursor: pointer;
-    margin-bottom: 30px;
-    position: relative;
-    transition: all .3s;
-
-    &:hover {
-      //&::before {
-      //  background: linear-gradient(270.04deg, #131A1B 0.03%, rgba(229, 255, 255, 0) 99.97%);
-      //  opacity: 0.25;
-      //}
-
-      .select-animate {
-        &_title {
-          color: #E5FFFF;
-
-          opacity: 1;
-        }
-
-        svg {
-          path {
-            fill: #0cbe3b;
-          }
-        }
-      }
-    }
-
-    &_logo {
-      margin-bottom: 4px;
-
-      path {
-        fill: #0cbe3b !important;
-      }
-
-      fill: #0cbe3b !important;
-
-      svg {
-        path {
-          fill: #0cbe3b !important;
-        }
-      }
     }
   }
 }

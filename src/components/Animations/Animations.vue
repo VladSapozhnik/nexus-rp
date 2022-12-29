@@ -61,7 +61,6 @@ export default {
   &-list {
     display: flex;
     flex-wrap: wrap;
-    //justify-content: space-between;
     margin-bottom: 19px;
 
     &_scrollbar {

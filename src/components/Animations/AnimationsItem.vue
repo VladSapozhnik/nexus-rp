@@ -1,5 +1,5 @@
 <template>
-  <div class="animations-list_item list-item" :id="id" draggable="true">
+  <div class="animations-list_item list-item" draggable="true">
     <div class="list-item_image">
       <svg width="22" height="36" viewBox="0 0 22 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -21,7 +21,6 @@ export default {
   props: {
     title: String,
     svg: String,
-    id: Number
   },
   // methods: {
   //   dragEz: function (e) {
