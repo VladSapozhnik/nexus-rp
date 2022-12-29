@@ -18,7 +18,7 @@ export default {
     await this.GET_CATEGORY_ANIMATED();
   },
   computed: {
-    ...mapGetters(['ANIMATED_CATEGORY_RESULT'])
+    ...mapGetters(['ANIMATED_CATEGORY_RESULT']),
   },
   methods: {
     ...mapActions(["GET_CATEGORY_ANIMATED", 'GET_ANIMATED_API']),

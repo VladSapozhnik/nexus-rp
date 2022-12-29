@@ -1,14 +1,16 @@
 <template>
   <div class="animations">
-    <Search style="margin-bottom: 11px;" />
+    <Search style="margin-bottom: 11px;"/>
     <h2 class="h2">Анимации</h2>
     <perfect-scrollbar class="animations-list animations-list_scrollbar">
-      <AnimationsItem v-for="item of ANIMATE_RESULT" :key="item.id" :id="item.id" :title="item.title" :svg="item.src" class="animations-list_item"/>
+      <AnimationsItem v-for="item of sortSearchItem" :key="item.id" :id="item.id" :title="item.title" :svg="item.src"
+                      class="animations-list_item"/>
     </perfect-scrollbar>
     <h2 class="h2">Быстрый доступ</h2>
-    <p class="animations-info">Для добавления анимации в быстрый доступ - зажмите ЛКМ и перетащите анимацию в нужную ячейку</p>
+    <p class="animations-info">Для добавления анимации в быстрый доступ - зажмите ЛКМ и перетащите анимацию в нужную
+      ячейку</p>
     <div class="animations-list">
-      <animations-item class="animations-list_item" v-for="(item, index) of 6" :key="index" />
+      <animations-item class="animations-list_item" v-for="(item, index) of 6" :key="index"/>
     </div>
     <div class="animations-close"><span>esc</span> - Закрыть окно</div>
   </div>
@@ -27,7 +29,10 @@ export default {
     await this.GET_ANIMATED_API();
   },
   computed: {
-    ...mapGetters(["ANIMATE_RESULT"])
+    ...mapGetters(["ANIMATE_RESULT", 'SEARCH']),
+    sortSearchItem: function () {
+      return this.ANIMATE_RESULT?.filter(item => item.title.toLowerCase().match(this.SEARCH.toLowerCase()));
+    },
   },
   methods: {
     ...mapActions(['GET_ANIMATED_API'])
@@ -43,6 +48,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   .h2 {
     font-weight: 500;
     font-size: 14px;
@@ -55,8 +61,9 @@ export default {
   &-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    //justify-content: space-between;
     margin-bottom: 19px;
+
     &_scrollbar {
       //height: 474px;
       height: 50%;
@@ -77,6 +84,7 @@ export default {
     font-weight: 600;
     color: rgba(229, 255, 255, 0.4);
     cursor: pointer;
+
     span {
       text-transform: uppercase;
       font-weight: bold;

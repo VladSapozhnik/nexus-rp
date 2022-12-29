@@ -1,6 +1,6 @@
 export default {
     state: {
-        search: 'Vlad'
+        search: ''
     },
     mutations: {
         updateSearch(state, value) {
