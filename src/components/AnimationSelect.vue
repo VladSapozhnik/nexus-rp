@@ -3,7 +3,7 @@
     <!--      <perfect-scrollbar>-->
     <div v-for="(item, index) of ANIMATED_CATEGORY_RESULT" @click="openAnimates(item.category), handlerClick(index)"
          :key="item.id" class="select-animate" :class="{'active': index === idActive}">
-      <img class="select-animate_logo" :src="item.img"/>
+      <img class="select-animate_logo" :src="item.src" alt="item.src"/>
       <p class="select-animate_title">{{ item.title }}</p>
     </div>
     <!--      </perfect-scrollbar>-->
@@ -66,9 +66,17 @@ export default {
   padding: 10px 0;
   box-sizing: border-box;
   cursor: pointer;
-  margin-bottom: 30px;
   position: relative;
   transition: all .3s;
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
+
+  @media (max-height: 864px) {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
 
   &::before {
     content: '';

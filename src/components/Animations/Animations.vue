@@ -9,8 +9,15 @@
     <h2 class="h2">Быстрый доступ</h2>
     <p class="animations-info">Для добавления анимации в быстрый доступ - зажмите ЛКМ и перетащите анимацию в нужную
       ячейку</p>
-    <div class="animations-list">
-      <animations-item class="animations-list_item" v-for="(item, index) of 6" :key="index"/>
+    <div class="animations-list" >
+<!--      <div class="animations-list" @dragstart.prevent @dragover.prevent>-->
+
+      <fast-access class="animations-list_item" v-for="(item, index) of fastAccessArray"
+                   :title="item.title"
+                   :name="item.name"
+                   :number="index + 1"
+                   :key="item.id"/>
+      <!--      <animations-item class="animations-list_item" v-for="(item, index) of 6" :key="index"/>-->
     </div>
     <div class="animations-close"><span>esc</span> - Закрыть окно</div>
   </div>
@@ -19,12 +26,49 @@
 <script>
 import AnimationsItem from "@/components/Animations/AnimationsItem.vue";
 import {PerfectScrollbar} from 'vue3-perfect-scrollbar';
-import Search from "@/components/Search.vue";
+import Search from "@/components/Search/Search.vue";
 import {mapActions, mapGetters} from "vuex";
+import FastAccess from "@/components/FastAccess/FastAccess.vue";
 
 export default {
   name: "AnimationsEl",
-  components: {AnimationsItem, PerfectScrollbar, Search},
+  components: {FastAccess, AnimationsItem, PerfectScrollbar, Search},
+  data() {
+    return {
+      fastAccessArray: [
+        {
+          id: 1,
+          title: "Танцы",
+          name: "Ча-ча-ча"
+        },
+        {
+          id: 2,
+          title: "",
+          name: ""
+        },
+        {
+          id: 3,
+          title: "",
+          name: ""
+        },
+        {
+          id: 4,
+          title: "",
+          name: ""
+        },
+        {
+          id: 5,
+          title: "",
+          name: ""
+        },
+        {
+          id: 6,
+          title: "",
+          name: ""
+        },
+      ]
+    }
+  },
   async created() {
     await this.GET_ANIMATED_API();
   },
@@ -35,8 +79,16 @@ export default {
     },
   },
   methods: {
-    ...mapActions(['GET_ANIMATED_API'])
-  },
+    ...mapActions(['GET_ANIMATED_API']),
+    test: function () {
+      console.log(this.fastAccessArray[4].title)
+      let a = 6 - this.fastAccessArray.length
+      let isLength = this.fastAccessArray.length + a;
+      console.log(isLength)
+      this.fastAccessArray.length = isLength
+      return this.fastAccessArray;
+    }
+  }
 }
 </script>
 
@@ -48,6 +100,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 18px 0 21px;
 
   .h2 {
     font-weight: 500;
@@ -64,8 +117,8 @@ export default {
     margin-bottom: 19px;
 
     &_scrollbar {
-      //height: 474px;
-      height: 50%;
+      //height: 50%;
+      height: 100%;
     }
 
     &_item {

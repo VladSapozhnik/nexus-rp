@@ -1,5 +1,5 @@
 <template>
-  <div class="animations-list_item list-item" draggable="true">
+  <div class="animations-list_item list-item" draggable="true" @dragstart="onDragStart($event)">
     <div class="list-item_image">
       <svg width="22" height="36" viewBox="0 0 22 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -22,6 +22,13 @@ export default {
     title: String,
     svg: String,
   },
+  methods: {
+    onDragStart: function (e) {
+      let id = e.target.getAttribute('id');
+      console.log(id)
+      // e.dataTransfer('id', id)
+    }
+  }
   // methods: {
   //   dragEz: function (e) {
   //     e.preventDefault();
@@ -58,6 +65,15 @@ export default {
   &_title {
     color: #E5FFFF;
     word-wrap: break-word;
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  &_name {
+    font-weight: 500;
+    font-size: 8px;
+    line-height: 10px;
+    color: rgba(229, 255, 255, 0.4);
   }
 
   &:hover {
@@ -73,10 +89,6 @@ export default {
     &::before {
       background: radial-gradient(50% 50% at 50% 50%, rgba(43, 217, 217, 0.25) 0%, rgba(43, 217, 217, 0) 100%);
       opacity: 0.25;
-    }
-
-    &::after {
-
     }
 
     .list-item {

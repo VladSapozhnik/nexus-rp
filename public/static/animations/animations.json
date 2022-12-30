@@ -3,48 +3,48 @@
     "id": 1,
     "title": "Танцы",
     "category": "dance",
-    "img": "/images/dance.svg",
+    "src": "/images/dance.svg"
   },
   {
     "id": 2,
     "title": "Стиль походки",
     "category": "gait",
-    "img": "/images/gait.svg",
+    "src": "/images/gait.svg"
   },
   {
     "id": 3,
     "title": "Физ.упражнения",
     "category": "physicalExercises",
-    "img": "/images/physicalExercises.svg",
+    "src": "/images/physicalExercises.svg"
   },
   {
     "id": 4,
     "title": "Социальные",
     "category": "social",
-    "img": "/images/social.svg",
+    "src": "/images/social.svg"
   },
   {
     "id": 5,
     "title": "Эмоции",
     "category": "emotions",
-    "img": "/images/emotions.svg",
+    "src": "/images/emotions.svg"
   },
   {
     "id": 6,
     "title": "Действия",
     "category": "actions",
-    "img": "/images/actions.svg",
+    "src": "/images/actions.svg"
   },
   {
     "id": 7,
     "title": "Стойки",
     "category": "position",
-    "img": "/images/position.svg",
+    "src": "/images/position.svg"
   },
   {
     "id": 8,
     "title": "Неприличные",
     "category": "indecent",
-    "img": "/images/indecent.svg",
+    "src": "/images/indecent.svg"
   }
 ]
