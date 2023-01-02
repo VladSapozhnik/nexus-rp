@@ -67,9 +67,15 @@ export default {
   box-sizing: border-box;
   cursor: pointer;
   position: relative;
-  transition: all .3s;
+  //transition: all .3s;
   &:not(:last-child) {
     margin-bottom: 30px;
+  }
+
+  &_logo {
+    margin-bottom: 4px;
+    filter: brightness(0) invert(1) opacity(15%);
+    transition: all .3s;
   }
 
   @media (max-height: 864px) {
@@ -96,17 +102,16 @@ export default {
       opacity: .75;
     }
     .select-animate {
-
+      &_logo {
+        margin-bottom: 4px;
+        filter: brightness(0) invert(1) opacity(100%);
+      }
 
       &_title {
         color: #E5FFFF;
         opacity: 1;
       }
     }
-  }
-
-  &_logo {
-    margin-bottom: 4px;
   }
 }
 </style>

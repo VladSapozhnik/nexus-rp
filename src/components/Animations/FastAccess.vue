@@ -72,7 +72,7 @@ export default {
     border-image: linear-gradient(225deg, rgba(43, 217, 217, 0.25) 0%, rgba(43, 217, 217, 0) 49.21%);
     min-height: 76px;
     &.active {
-      border: 1px solid red;
+      border: 1px solid #2BD9D9;
       cursor: auto;
     }
 

@@ -3,21 +3,18 @@
     <Search style="margin-bottom: 11px;"/>
     <h2 class="h2">Анимации</h2>
     <perfect-scrollbar class="animations-list animations-list_scrollbar">
-      <AnimationsItem v-for="item of sortSearchItem" :key="item.id" :id="item.id" :title="item.title" :svg="item.src"
+      <AnimationsItem v-for="item of sortSearchItem" :key="item.id" :id="item.id" :title="item.title" :src="item.src"
                       class="animations-list_item"/>
     </perfect-scrollbar>
     <h2 class="h2">Быстрый доступ</h2>
     <p class="animations-info">Для добавления анимации в быстрый доступ - зажмите ЛКМ и перетащите анимацию в нужную
       ячейку</p>
-    <div class="animations-list" >
-<!--      <div class="animations-list" @dragstart.prevent @dragover.prevent>-->
-
+    <div class="animations-list">
       <fast-access class="animations-list_item" v-for="(item, index) of fastAccessArray"
                    :title="item.title"
                    :name="item.name"
                    :number="index + 1"
                    :key="item.id"/>
-      <!--      <animations-item class="animations-list_item" v-for="(item, index) of 6" :key="index"/>-->
     </div>
     <div class="animations-close"><span>esc</span> - Закрыть окно</div>
   </div>
@@ -28,7 +25,7 @@ import AnimationsItem from "@/components/Animations/AnimationsItem.vue";
 import {PerfectScrollbar} from 'vue3-perfect-scrollbar';
 import Search from "@/components/Search/Search.vue";
 import {mapActions, mapGetters} from "vuex";
-import FastAccess from "@/components/FastAccess/FastAccess.vue";
+import FastAccess from "@/components/Animations/FastAccess.vue";
 
 export default {
   name: "AnimationsEl",
@@ -107,17 +104,16 @@ export default {
     font-size: 14px;
     line-height: 17px;
     text-align: center;
-    margin-bottom: 15px;
     color: #E5FFFF;
+    margin-top: 19px;
   }
 
   &-list {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 19px;
+    //margin-bottom: 19px;
 
     &_scrollbar {
-      //height: 50%;
       height: 100%;
     }
 
