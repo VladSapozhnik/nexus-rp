@@ -1,5 +1,5 @@
 <template>
-  <div class="animations-list_item list-item" draggable="true" @dragstart="onDragStart($event)">
+  <div class="animations-list_item list-item" draggable="true" @dragstart="onDragStart($event, item)">
     <div class="list-item_image">
       <img :src="src" :alt="title" />
     </div>
@@ -14,6 +14,7 @@ export default {
   props: {
     title: String,
     src: String,
+    item: Object
   },
   computed: {
     fontSizeLength: function () {
@@ -21,25 +22,10 @@ export default {
     }
   },
   methods: {
-    onDragStart: function (e) {
-      let id = e.target.getAttribute('id');
-      console.log(id)
-      // e.dataTransfer('id', id)
+    onDragStart: function (e, item) {
+      e.dataTransfer.setData('id', JSON.stringify(item));
     }
   }
-  // methods: {
-  //   dragEz: function (e) {
-  //     e.preventDefault();
-  //   },
-  //   drag: function (e) {
-  //     // let id =;
-  //     e.dataTransfer.setData('id', e.target.id)
-  //   },
-  //   drop: function (e) {
-  //     let itemId = e.dataTransfer.getData('id')
-  //     console.log(itemId)
-  //   }
-  // }
 }
 </script>
 

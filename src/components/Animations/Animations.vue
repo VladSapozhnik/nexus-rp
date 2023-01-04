@@ -3,18 +3,19 @@
     <Search style="margin-bottom: 11px;"/>
     <h2 class="h2">Анимации</h2>
     <perfect-scrollbar class="animations-list animations-list_scrollbar">
-      <AnimationsItem v-for="item of sortSearchItem" :key="item.id" :id="item.id" :title="item.title" :src="item.src"
+      <AnimationsItem v-for="item of sortSearchItem" :key="item.id" :id="item.id" :item="item" :title="item.title" :src="item.src"
                       class="animations-list_item"/>
     </perfect-scrollbar>
     <h2 class="h2">Быстрый доступ</h2>
     <p class="animations-info">Для добавления анимации в быстрый доступ - зажмите ЛКМ и перетащите анимацию в нужную
       ячейку</p>
-    <div class="animations-list">
+    <div class="animations-list" @dragover.prevent @dragenter.prevent @drop="onDrop($event)">
       <fast-access class="animations-list_item" v-for="(item, index) of fastAccessArray"
                    :title="item.title"
                    :name="item.name"
                    :number="index + 1"
-                   :key="item.id"/>
+                   :key="item.id"
+      />
     </div>
     <div class="animations-close"><span>esc</span> - Закрыть окно</div>
   </div>
@@ -35,35 +36,41 @@ export default {
       fastAccessArray: [
         {
           id: 1,
+          src: '',
           title: "Танцы",
           name: "Ча-ча-ча"
         },
         {
           id: 2,
+          src: '',
           title: "",
           name: ""
         },
         {
           id: 3,
+          src: '',
           title: "",
           name: ""
         },
         {
           id: 4,
+          src: '',
           title: "",
           name: ""
         },
         {
           id: 5,
+          src: '',
           title: "",
           name: ""
         },
         {
           id: 6,
+          src: '',
           title: "",
           name: ""
         },
-      ]
+      ],
     }
   },
   async created() {
@@ -77,13 +84,9 @@ export default {
   },
   methods: {
     ...mapActions(['GET_ANIMATED_API']),
-    test: function () {
-      console.log(this.fastAccessArray[4].title)
-      let a = 6 - this.fastAccessArray.length
-      let isLength = this.fastAccessArray.length + a;
-      console.log(isLength)
-      this.fastAccessArray.length = isLength
-      return this.fastAccessArray;
+    onDrop: function (e) {
+      let itemId = e.dataTransfer.getData('id');
+      console.log([JSON.parse(itemId), ...this.fastAccessArray], 'get')
     }
   }
 }

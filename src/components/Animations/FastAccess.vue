@@ -1,10 +1,5 @@
 <template>
-  <div class="fast-access__item"
-       @dragover="onDragOver($event)"
-       @drop="onDrop($event)"
-       @dragenter="onDragEnter"
-       draggable="true"
-  >
+  <div class="fast-access__item">
     <div class="fast-access__images" :class="{active: title.length === 0 && name.length === 0}">
       <div v-if="title.length && name.length" class="fast-access__remove">x</div>
       <div class="fast-access__number">{{number}}</div>
@@ -28,21 +23,6 @@ export default {
     title: String,
     name: String
   },
-  methods: {
-    onDrop: function (e) {
-      e.preventDefault()
-      console.log(e)
-      // let id = e.dataTransfer.getData('id')
-      // console.log(id)
-    },
-    onDragOver: function (e) {
-      e.preventDefault()
-      console.log(e)
-    },
-    onDragEnter: function () {
-      console.log('bbb')
-    }
-  }
 }
 </script>
 
