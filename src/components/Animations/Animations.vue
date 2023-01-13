@@ -9,19 +9,20 @@
     <h2 class="h2">Быстрый доступ</h2>
     <p class="animations-info">Для добавления анимации в быстрый доступ - зажмите ЛКМ и перетащите анимацию в нужную
       ячейку</p>
-    <div class="animations-list" @dragover.prevent @dragenter.prevent @drop="onDrop($event)">
-      <fast-access class="animations-list_item" v-for="(item, index) of fastAccessArray"
-                   :title="item.title"
-                   :name="item.name"
-                   :number="index + 1"
-                   :key="item.id"
-      />
-    </div>
+      <draggable class="animations-list" v-model="fastAccessArray" draggable="item">
+        <fast-access class="animations-list_item" v-for="(item, index) of fastAccessArray"
+                     :title="item.title"
+                     :name="item.name"
+                     :number="index + 1"
+                     :key="item.id"
+        />
+      </draggable>
     <div class="animations-close"><span>esc</span> - Закрыть окно</div>
   </div>
 </template>
 
 <script>
+import {draggable} from 'vuedraggable';
 import AnimationsItem from "@/components/Animations/AnimationsItem.vue";
 import {PerfectScrollbar} from 'vue3-perfect-scrollbar';
 import Search from "@/components/Search/Search.vue";
@@ -30,7 +31,13 @@ import FastAccess from "@/components/Animations/FastAccess.vue";
 
 export default {
   name: "AnimationsEl",
-  components: {FastAccess, AnimationsItem, PerfectScrollbar, Search},
+  components: {
+    draggable,
+    FastAccess,
+    AnimationsItem,
+    PerfectScrollbar,
+    Search
+  },
   data() {
     return {
       fastAccessArray: [
@@ -84,10 +91,6 @@ export default {
   },
   methods: {
     ...mapActions(['GET_ANIMATED_API']),
-    onDrop: function (e) {
-      let itemId = e.dataTransfer.getData('id');
-      console.log([JSON.parse(itemId), ...this.fastAccessArray], 'get')
-    }
   }
 }
 </script>

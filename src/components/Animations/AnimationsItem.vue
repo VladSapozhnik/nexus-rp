@@ -1,5 +1,5 @@
 <template>
-  <div class="animations-list_item list-item" draggable="true" @dragstart="onDragStart($event, item)">
+  <div class="animations-list_item list-item">
     <div class="list-item_image">
       <img :src="src" :alt="title" />
     </div>
@@ -21,11 +21,6 @@ export default {
       return this.title.length > 9 ? 10 / this.title.length * 10 : 10
     }
   },
-  methods: {
-    onDragStart: function (e, item) {
-      e.dataTransfer.setData('id', JSON.stringify(item));
-    }
-  }
 }
 </script>
 
